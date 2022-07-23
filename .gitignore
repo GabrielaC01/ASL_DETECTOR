@@ -1,2 +1,6 @@
 /data
 /processed
+/validation
+/weights/*.pt
+!/weights/best_weights_30.pt
+/__pycache__

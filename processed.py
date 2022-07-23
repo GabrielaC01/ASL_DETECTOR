@@ -34,7 +34,7 @@ for filename_sf in subfolders:
         # cambio de color
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         # deteccion de la mano
-        hands = hand_cascade.detectMultiScale(gray, 1.3, 5)
+        hands = hand_cascade.detectMultiScale(gray, 1.1, 5)
         if len(hands) == 0 :
             continue
         hands = sorted(hands, key = lambda f:f[2]*f[3])
@@ -51,7 +51,7 @@ for filename_sf in subfolders:
       
                 #print(hand_section)
             
-                hand_section = cv2.resize(hand_section, (160, 160))
+                hand_section = cv2.resize(hand_section, (224, 224))
                 print (image_path_processed)
                 cv2.imwrite(
                         image_path_processed, hand_section
