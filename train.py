@@ -9,7 +9,8 @@ DEVICE='cuda' if torch.cuda.is_available() else 'cpu'
 
 BATCH_SIZE=16
 LR=0.001
-EPOCHS=40
+EPOCHS=1
+
 
 def train_fn(dataloader, model, optimizer, criterion):
   model.train()
@@ -69,9 +70,9 @@ for i in range(EPOCHS):
 plt.plot(vector_epoch,vector_train, "o",  color ="red")
 plt.plot(vector_epoch,vector_valid, "o", color="yellow")
 plt.xlabel("EPOCHS", fontsize = 15, color = "blue")
-plt.ylabel("LOST", fontsize = 15, color = "blue")
-plt.title("GRÁFICA DE LOST", fontsize =18, color = "green")
-plt.savefig(f'./image/grafica_{EPOCHS}.png')
+plt.ylabel("LOSS", fontsize = 15, color = "blue")
+plt.title("GRÁFICA DE LOSS", fontsize =18, color = "green")
+plt.savefig(f'./image/graphics/grafica_{EPOCHS}.png')
 plt.show()
 
  
