@@ -17,6 +17,10 @@ asl_model.eval()
 min_w = 20
 min_h = 20
 
+# coincidencias
+i = 0
+j = 0
+
 # Cargar archivo clasificador
 hand_cascade = cv2.CascadeClassifier("./Hand_haar_cascade.xml")
 
@@ -53,5 +57,9 @@ for f in onlyfiles:
             #print(hand_section_tensor)
             prediction = asl_model(hand_section_tensor)
             index = torch.argmax(prediction).item()
-            print(f, " ", index_to_letter[index])
-
+            j += 1
+            if index_to_letter[index] in f:
+                i += 1
+                print(f, " ", index_to_letter[index])
+                
+print(" Total de coincidencias : ", i, " de ", j)
